@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User registration</title>
-    <script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User registration</title>
+  <script>
     function checkIfUsernameExists() {
 
-var username = document.getElementById("username").value;
+      var username = document.getElementById("username").value;
 
-fetch("https://tsuser.netlify.app/.netlify/functions/server")
-    .then(result => {
-        result.text().then(text => {
+      fetch("https://tsuser.netlify.app/.netlify/functions/server")
+        .then(result => {
+          result.text().then(text => {
 
             var flag = false
 
@@ -19,74 +20,74 @@ fetch("https://tsuser.netlify.app/.netlify/functions/server")
 
             jsonObject.forEach(item => {
 
-                if (!(typeof item.username === 'undefined')) {
-                    if (item.username == username) {
+              if (!(typeof item.username === 'undefined')) {
+                if (item.username == username) {
 
-                        flag = true
-                        alert("This username already exists!")
-                        
-                    }
+                  flag = true
+                  alert("This username already exists!")
+
                 }
+              }
 
             })
 
-        postData(flag)
+            postData(flag)
 
+          })
         })
-    })
 
-}
-
+    }
 
 
-function postData(flag) {
 
-if(flag)
-{
-    return false
-}
+    function postData(flag) {
 
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-var repeatedPassword = document.getElementById("repeat").value;
+      if (flag) {
+        return false
+      }
 
-    if (username.length >= 4) {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var repeatedPassword = document.getElementById("repeat").value;
+
+      if (username.length >= 4) {
 
         if (password.length >= 6) {
 
 
-            if (password == repeatedPassword) {
-                fetch("https://tsuser.netlify.app/.netlify/functions/server", {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
+          if (password == repeatedPassword) {
+            fetch("https://tsuser.netlify.app/.netlify/functions/server", {
+              method: 'POST',
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
 
-                        username: username,
-                        password: password
-                    })
+                username: username,
+                password: password
+              })
 
-                })
-                    .then(result => {
-                        console.log(result)
-                        result.text().then(text => { document.getElementById("showData").value = text })
-                    })
-                alert("Created new account successfully!")
-            }
-            else {
-                alert("The passwords are not the same!")
-            }
+            })
+              .then(result => {
+                console.log(result)
+                result.text().then(text => { document.getElementById("showData").value = text })
+              })
+            alert("Created new account successfully!")
+          }
+          else {
+            alert("The passwords are not the same!")
+          }
 
         }
         else {
-            alert("Please enter at least 6 characters for the password!")
+          alert("Please enter at least 6 characters for the password!")
         }
 
-    }
-    else {
+      }
+      else {
         alert("Please enter at least 4 characters for your username!")
+      }
+
     }
 
-}
 
 
 
@@ -94,25 +95,26 @@ var repeatedPassword = document.getElementById("repeat").value;
 
 
 
-
-    </script>
-    <link rel="stylesheet" href="main.css">
+  </script>
+  <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
   <div id="create">
-   <h1>Create a new account</h1>
-   <form>
-     <label>New username:</label><br>
-     <input type="text" placeholder="Username" id="username">
-     <br><br>
-     <label>New password:</label><br>
-     <input type="password" placeholder="Password" id="password">
-     <br><br>
-     <label>Repeat password:</label><br>
-     <input type="password" placeholder="Repeat password" id="repeat">
-     <br><br>
-     <button onclick="checkIfUsernameExists();return false;">Create account</button>
-   </form>   
+    <h1>Create a new account</h1>
+    <form>
+      <label>New username:</label><br>
+      <input type="text" placeholder="Username" id="username">
+      <br><br>
+      <label>New password:</label><br>
+      <input type="password" placeholder="Password" id="password">
+      <br><br>
+      <label>Repeat password:</label><br>
+      <input type="password" placeholder="Repeat password" id="repeat">
+      <br><br>
+      <button onclick="checkIfUsernameExists();return false;">Create account</button>
+    </form>
   </div>
 </body>
+
 </html>
