@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User registration</title>
+    <script src="../src/post.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="create">
+   <h1>Create a new account</h1>
+   <form>
+     <label>New username:</label><br>
+     <input type="text" placeholder="Username" id="username">
+     <br><br>
+     <label>New password:</label><br>
+     <input type="password" placeholder="Password" id="password">
+     <br><br>
+     <label>Repeat password:</label><br>
+     <input type="password" placeholder="Repeat password" id="repeat">
+     <br><br>
+     <button onclick="checkIfUsernameExists();return false;">Create account</button>
+   </form>   
+  </div>
+</body>
+</html>
