@@ -58,5 +58,6 @@ router.post("/post", (request, response) => {
 
 
 server.use("/.netlify/functions/server",router)
+server.use("/.netlify/functions/server/post",router)
 module.exports.handler = serverless(server)
 

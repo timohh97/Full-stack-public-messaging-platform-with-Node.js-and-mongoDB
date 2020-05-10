@@ -2,7 +2,7 @@ function checkIfUsernameExists() {
 
     var username = document.getElementById("username").value;
 
-    fetch("https://tsuser.netlify.app/.netlify/functions/server/")
+    fetch("https://tsuser.netlify.app/.netlify/functions/server")
         .then(result => {
             result.text().then(text => {
 
