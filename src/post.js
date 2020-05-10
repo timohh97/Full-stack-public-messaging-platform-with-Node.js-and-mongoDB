@@ -49,7 +49,7 @@ function postData(flag) {
 
 
                 if (password == repeatedPassword) {
-                    fetch("https://tsuser.netlify.app/.netlify/functions/server/post", {
+                    fetch("https://tsuser.netlify.app/.netlify/functions/server", {
                         method: 'POST',
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({

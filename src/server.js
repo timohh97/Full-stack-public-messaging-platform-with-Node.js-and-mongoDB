@@ -33,7 +33,7 @@ router.get("/", async (request, response)=>
     
 })
 
-router.post("/post", (request, response) => {
+router.post("/", (request, response) => {
     console.log("The post request is: " + request.body)
 
     const postaction = new PostModel({
@@ -58,6 +58,5 @@ router.post("/post", (request, response) => {
 
 
 server.use("/.netlify/functions/server",router)
-server.use("/.netlify/functions/server/post",router)
 module.exports.handler = serverless(server)
 
