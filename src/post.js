@@ -2,7 +2,7 @@ function checkIfUsernameExists() {
 
     var username = document.getElementById("username").value;
 
-    fetch("http://localhost:9000/.netlify/functions/server/")
+    fetch("https://tsuser.netlify.app/.netlify/functions/server/")
         .then(result => {
             result.text().then(text => {
 
@@ -49,7 +49,7 @@ function postData(flag) {
 
 
                 if (password == repeatedPassword) {
-                    fetch("http://localhost:9000/.netlify/functions/server/post", {
+                    fetch("https://tsuser.netlify.app/.netlify/functions/server/post", {
                         method: 'POST',
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
