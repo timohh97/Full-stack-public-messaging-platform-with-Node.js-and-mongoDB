@@ -10,7 +10,7 @@
 
       var username = document.getElementById("username").value;
 
-      fetch("https://tsuser.netlify.app/.netlify/functions/server")
+      fetch("https://timoschessl-register.netlify.app/.netlify/functions/server")
         .then(result => {
           result.text().then(text => {
 
@@ -56,7 +56,7 @@
 
 
           if (password == repeatedPassword) {
-            fetch("https://tsuser.netlify.app/.netlify/functions/server", {
+            fetch("https://timoschessl-register.netlify.app/.netlify/functions/server", {
               method: 'POST',
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
