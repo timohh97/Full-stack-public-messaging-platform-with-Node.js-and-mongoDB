@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="loginStyle.css">
+    <script>
+        function login() {
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            fetch("https://timoschessl-register.netlify.app/.netlify/functions/server")
+                .then(result => {
+                    result.text().then(text => {
+
+                        var flag = false
+                        var jsonObject = JSON.parse(text)
+
+                        jsonObject.forEach(item => {
+
+                            if (!(typeof item.username === 'undefined')) {
+
+                                if (item.username == username && item.password == password) {
+
+                                    flag = true
+                                    alert("You are now logged in!")
+
+
+                                }
+                            }
+
+                        })
+
+                        if (!flag) {
+                            alert("Login failed!")
+                        }
+
+                    })
+                })
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="login">
+        <h1>Login</h1>
+        <form>
+            <label>Your username:</label><br>
+            <input type="text" placeholder="Username" id="username">
+            <br><br>
+            <label>Your password:</label><br>
+            <input type="password" placeholder="Password" id="password">
+            <br><br>
+            <button onclick="login();return false;">Login</button>
+            <br>
+            <br>
+            <button type="reset">Reset</button>
+        </form>
+        <br>
+        <a href="index.html">Go back</a>
+    </div>
+
+</body>
+
+</html>

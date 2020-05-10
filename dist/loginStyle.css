@@ -2,7 +2,7 @@ body{
     background-image: url("Unbenannt.png");
 }
 
-#create
+#login
 {
     margin-top: 50px;
     margin-left: 550px;
@@ -45,6 +45,3 @@ a{
     font-size: x-large; 
     text-decoration: none;
 }
-
-
-
