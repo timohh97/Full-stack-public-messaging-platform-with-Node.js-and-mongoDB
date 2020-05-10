@@ -1,11 +1,12 @@
 body{
     background-image: url("Unbenannt.png");
+    
 }
 
 #create
 {
+    margin: auto;
     margin-top: 50px;
-    margin-left: 550px;
     background-color: white;
     display: block;
     width: 400px;
