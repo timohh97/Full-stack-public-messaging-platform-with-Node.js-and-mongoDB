@@ -1,7 +1,14 @@
+function returnToLoginWindow()
+{
+     localStorage.setItem("userloggedin","false")
+     window.open(href="./login.html","_self")
+}
+
+
+
 function checkIfUserLoggedIn()
 {
-
-    if(localStorage.getItem("userloggedin")==null)
+    if(localStorage.getItem("userloggedin")==null || localStorage.getItem("userloggedin")=="false")
     {
         alert("Not allowed!")
         window.open(href="./login.html","_self")
