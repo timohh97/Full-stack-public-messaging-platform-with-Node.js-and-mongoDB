@@ -10,7 +10,7 @@
 
       var username = document.getElementById("username").value;
 
-      fetch("https://localhost:9000/.netlify/functions/server")
+      fetch("http://localhost:9000/.netlify/functions/server")
         .then(result => {
           result.text().then(text => {
 
@@ -60,7 +60,7 @@
 
 
             if (password == repeatedPassword) {
-              fetch("https://localhost:9000/.netlify/functions/server", {
+              fetch("http://localhost:9000/.netlify/functions/server", {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
