@@ -1,52 +1,54 @@
-function returnToLoginWindow()
-{
-     localStorage.setItem("userloggedin","false")
-     window.open(href="./login.html","_self")
+function returnToLoginWindow() {
+    localStorage.setItem("userloggedin", "false")
+    localStorage.setItem("currentuser","")
+    window.open(href = "./login.html", "_self")
 }
 
 
 
-function checkIfUserLoggedIn()
-{
-    if(localStorage.getItem("userloggedin")==null || localStorage.getItem("userloggedin")=="false")
-    {
+function checkIfUserLoggedIn() {
+    if (localStorage.getItem("userloggedin") == null || localStorage.getItem("userloggedin") == "false") {
         alert("Not allowed!")
-        window.open(href="./login.html","_self")
+        window.open(href = "./login.html", "_self")
     }
 }
 
 
 
 
-function updateDropDownMenu()
-{
+function updateDropDownMenu() {
     fetch("https://timoschessl-register.netlify.app/.netlify/functions/server")
-    .then(result => {
-        result.text().then(text => {
+        .then(result => {
+            result.text().then(text => {
 
-            var flag = false
+                var flag = false
 
-            var jsonObject = JSON.parse(text)
+                var jsonObject = JSON.parse(text)
 
-            var htmlstring =  document.getElementById("dropdown").innerHTML;
+                var htmlstring = document.getElementById("dropdown").innerHTML;
 
-            jsonObject.forEach(item => {
+                jsonObject.forEach(item => {
 
-                if (!(typeof item.username === 'undefined')) {
-                    htmlstring+="<option>"+item.username+"</option>";
-                }
+                    if (!(typeof item.username === 'undefined') && !(typeof item.email === 'undefined')) {
+                        htmlstring += "<option value=" + item.email + ">" + item.username + "</option>";
+                    }
+
+                })
+
+                document.getElementById("dropdown").innerHTML = htmlstring;
 
             })
-
-            document.getElementById("dropdown").innerHTML= htmlstring;
-
         })
-    })
-} 
+}
 
 
 
-function sendMail()
-{
-    alert("Your message has been sent!")
+function sendEmail() {
+    alert("Sending email......")
+    var dropdown = document.getElementById("dropdown");
+    var emailOfTarget = dropdown.options[dropdown.selectedIndex].value
+    document.getElementById("target").value=""+emailOfTarget;
+    document.getElementById("messagebox").name+=" from "+localStorage.getItem("currentuser")
+
+
 }

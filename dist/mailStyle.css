@@ -7,7 +7,7 @@ body{
     text-align: center;
 }
 
-textarea
+#messagebox
 {
     resize: none;
     width: 500px;

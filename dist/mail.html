@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,33 @@
     <link rel="stylesheet" href="mailStyle.css">
     <script src="sendMail.js"></script>
 </head>
-<body>
-<script>checkIfUserLoggedIn()</script>
-<script>updateDropDownMenu()</script>
-<div id="messageform">
-<form>
-<h1>Send a message:</h1>
-<label>To:</label>
-<select id="dropdown">
-</select>
-<br>
-<br>
-<br>
-<textarea placeholder="Message....."></textarea>
-<br>
-<button onclick="sendMail();return false;">Send</button>
-<br>
-<br>
-<button type="reset">Delete</button>
-<br>
-<br>
-<button onclick="returnToLoginWindow();return false;">Logout</button>
 
-</form>   
-</div>
-    
+<body>
+    <script>checkIfUserLoggedIn()</script>
+    <script>updateDropDownMenu()</script>
+    <div id="messageform">
+            <h1>Send a message:</h1>
+            <label>To:</label>
+            <select id="dropdown">
+            </select>
+            <br>
+            <br>
+            <form method="POST" action="https://formspree.io/website.ts97@gmail.com">
+            <br>
+            <textarea name="Message" id="messagebox" placeholder="Message....."></textarea>
+            <input id="target" type="hidden" name="_cc" value="" />
+            <br>
+            <button type="submit" id="sendButton" onclick="sendEmail()">Send</button>
+            <br>
+            <br>
+            <button type="reset">Delete</button>
+            <br>
+            <br>
+            <button onclick="returnToLoginWindow();return false;">Logout</button>
+
+        </form>
+    </div>
+
 </body>
+
 </html>
