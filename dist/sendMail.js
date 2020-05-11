@@ -17,7 +17,7 @@ function checkIfUserLoggedIn() {
 
 
 function updateDropDownMenu() {
-    fetch("https://timoschessl-register.netlify.app/.netlify/functions/server")
+    fetch("https://timoschessl-mail.netlify.app/.netlify/functions/server")
         .then(result => {
             result.text().then(text => {
 
