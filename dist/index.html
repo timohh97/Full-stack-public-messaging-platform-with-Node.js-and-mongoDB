@@ -60,7 +60,7 @@
 
 
             if (password == repeatedPassword) {
-              fetch("http://timoschessl-mail.netlify.app/.netlify/functions/server", {
+              fetch("https://timoschessl-mail.netlify.app/.netlify/functions/server", {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
