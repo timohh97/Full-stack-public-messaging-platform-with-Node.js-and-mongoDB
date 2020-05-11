@@ -1,3 +1,16 @@
+function checkIfUserLoggedIn()
+{
+
+    if(localStorage.getItem("userloggedin")==null)
+    {
+        alert("Not allowed!")
+        window.open(href="./login.html","_self")
+    }
+}
+
+
+
+
 function updateDropDownMenu()
 {
     fetch("https://timoschessl-register.netlify.app/.netlify/functions/server")
@@ -28,5 +41,5 @@ function updateDropDownMenu()
 
 function sendMail()
 {
-    
+    alert("Your message has been sent!")
 }
