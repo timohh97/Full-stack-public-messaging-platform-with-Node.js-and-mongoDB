@@ -10,7 +10,7 @@
 
       var username = document.getElementById("username").value;
 
-      fetch("https://timoschessl-register.netlify.app/.netlify/functions/server")
+      fetch("https://localhost:9000/.netlify/functions/server")
         .then(result => {
           result.text().then(text => {
 
@@ -46,46 +46,54 @@
         return false
       }
 
+      var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       var username = document.getElementById("username").value;
+      var email = document.getElementById("email").value;
       var password = document.getElementById("password").value;
       var repeatedPassword = document.getElementById("repeat").value;
 
       if (username.length >= 4) {
 
-        if (password.length >= 6) {
+        if (re.test(email)==true) {
+
+          if (password.length >= 6) {
 
 
-          if (password == repeatedPassword) {
-            fetch("https://timoschessl-register.netlify.app/.netlify/functions/server", {
-              method: 'POST',
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
+            if (password == repeatedPassword) {
+              fetch("https://localhost:9000/.netlify/functions/server", {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
 
-                username: username,
-                password: password
+                  username: username,
+                  password: password,
+                  email: email
+                })
+
               })
+                .then(result => {
+                  console.log(result)
+                  result.text().then(text => { document.getElementById("showData").value = text })
+                })
+              alert("Created new account successfully!")
+            }
+            else {
+              alert("The passwords are not the same!")
+            }
 
-            })
-              .then(result => {
-                console.log(result)
-                result.text().then(text => { document.getElementById("showData").value = text })
-              })
-            alert("Created new account successfully!")
           }
           else {
-            alert("The passwords are not the same!")
+            alert("Please enter at least 6 characters for the password!")
           }
 
         }
         else {
-          alert("Please enter at least 6 characters for the password!")
+          alert("The email is not valid!")
         }
-
       }
       else {
         alert("Please enter at least 4 characters for your username!")
       }
-
     }
 
 
@@ -105,6 +113,9 @@
     <form>
       <label>New username:</label><br>
       <input type="text" placeholder="Username" id="username">
+      <br><br>
+      <label>Your email:</label><br>
+      <input type="text" placeholder="Your email" id="email">
       <br><br>
       <label>New password:</label><br>
       <input type="password" placeholder="Password" id="password">

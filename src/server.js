@@ -38,7 +38,8 @@ router.post("/", (request, response) => {
 
     const postaction = new PostModel({
         username: request.body.username,
-        password: request.body.password
+        password: request.body.password,
+        email: request.body.email
     })
 
 

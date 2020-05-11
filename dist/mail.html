@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail</title>
+    <link rel="stylesheet" href="mailStyle.css">
+    <script src="sendMail.js"></script>
+</head>
+<body>
+<script>updateDropDownMenu()</script>
+<div id="messageform">
+<form>
+<h1>Send a message:</h1>
+<label>To:</label>
+<select id="dropdown">
+</select>
+<br>
+<br>
+<br>
+<textarea placeholder="Message....."></textarea>
+<br>
+<button onclick="sendMail();return false;">Send</button>
+<br>
+<br>
+<button type="reset">Delete</button>
+
+</form>   
+</div>
+    
+</body>
+</html>

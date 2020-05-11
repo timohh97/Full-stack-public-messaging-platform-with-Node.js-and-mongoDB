@@ -8,6 +8,10 @@ const PostPattern = mongoose.Schema({
     password: {
         type: String,
         required: true 
+     },
+     email:{
+        type:String,
+        requried: true
      }
 })
 

@@ -5,11 +5,10 @@ body{
 #login
 {
     margin: auto;
-    margin-top: 50px;
     background-color: white;
     display: block;
     width: 400px;
-    height: 600px;
+    height: 650px;
     text-align: center;
     border-radius: 30px;
 }
