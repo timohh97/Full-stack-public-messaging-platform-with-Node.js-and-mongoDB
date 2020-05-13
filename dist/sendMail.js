@@ -47,8 +47,8 @@ function sendEmail() {
     alert("Sending email......")
     var dropdown = document.getElementById("dropdown");
     var emailOfTarget = dropdown.options[dropdown.selectedIndex].value
-    document.getElementById("target").value=""+emailOfTarget;
-    document.getElementById("messagebox").name+=" from "+localStorage.getItem("currentuser")
+    document.getElementById("to").value=""+emailOfTarget;
+    document.getElementById("from").value+=localStorage.getItem("currentuser");
 
 
 }
