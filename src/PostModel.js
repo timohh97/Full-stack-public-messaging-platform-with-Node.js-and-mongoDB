@@ -3,15 +3,15 @@ const mongoose = require("mongoose")
 const PostPattern = mongoose.Schema({
     username: {
        type: String,
-       required:false
+       required:true
     },
     password: {
         type: String,
-        required:false
+        required:true
      },
      email:{
         type:String,
-        required:false
+        required:true
      }
 })
 
