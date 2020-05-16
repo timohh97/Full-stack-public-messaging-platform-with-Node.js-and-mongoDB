@@ -10,6 +10,8 @@ URL = "mongodb+srv://mainuser:test@cluster-0gtou.mongodb.net/test?retryWrites=tr
 
 server.use(cors())
 server.use(bodyParser.json())
+server.use(express.json());
+server.use(express.urlencoded({extended:true}));
 
 mongoose.connect(URL,
     { useNewUrlParser: true , useUnifiedTopology: true}, () =>
@@ -56,7 +58,6 @@ router.post("/", (request, response) => {
 
 
 })
-
 
 server.use("/.netlify/functions/server",router)
 module.exports.handler = serverless(server)
