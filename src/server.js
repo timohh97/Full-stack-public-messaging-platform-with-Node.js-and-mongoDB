@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const PostModel = require('./PostModel')
 const bodyParser = require("body-parser")
 const cors = require("cors")
-URL = "mongodb+srv://mainuser:test@cluster-0gtou.mongodb.net/test?retryWrites=true&w=majority"
+URL = "mongodb+srv://mainuser:test@cluster-0gtou.mongodb.net/messengernetlify?retryWrites=true&w=majority"
 
 server.use(cors())
 server.use(bodyParser.json())
